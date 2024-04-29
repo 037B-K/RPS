@@ -75,6 +75,7 @@ class MyGame(arcade.Window):
         self.evil_scissors = arcade.Sprite("assets/scissors.png", .5, 0, 0, 0, 0, self.computer.center_x, 165, 1, 1,
                                            True)
 
+# Validates victory selon ce que le joueur a choisis comme attaque et le randint du computer attack
     def validate_victory(self):
         if self.player_attack_type == AttackType.ROCK:
             if self.computer_attack_type == 0:
@@ -137,10 +138,11 @@ class MyGame(arcade.Window):
         arcade.draw_rectangle_outline(256 - (self.ATTACK_FRAME_WIDTH + 5), 165, self.ATTACK_FRAME_WIDTH,
                                       self.ATTACK_FRAME_HEIGHT, arcade.color.RED)
 
-        # COMPUTER ATTACK (square)
+        # COMPUTER ATTACK (Le carré seulement)
         arcade.draw_rectangle_outline(self.computer.center_x, 165, self.ATTACK_FRAME_WIDTH, self.ATTACK_FRAME_HEIGHT,
                                       arcade.color.RED)
 
+# Draws the computer attack selon ce qu'il a recu avec le randint
     def draw_computer_attack(self):
         if self.computer_attack_type == 0:
             self.evil_rock.draw()
